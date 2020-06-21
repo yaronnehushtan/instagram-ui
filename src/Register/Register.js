@@ -20,8 +20,8 @@ function Register(props) {
     }
 
     return (
-        <div className="Register pb-5 pt-4">
-            <h2 className="ml-4 pt-3">Create your new Instagram account</h2>
+        <div className="Register pb-4 pt-3 px-5 h-100">
+            <h2 className="pt-1">Create your Instagram account</h2>
             <Formik 
                 initialValues={{username:'', password:'',email:'',agreeToTerms: false}}
                 validationSchema={RegisterSchema}
@@ -29,7 +29,7 @@ function Register(props) {
                 
                 {({ errors, touched }) => (  //() instead of {} cause in js6 we want to return all the Form  col-4 offset-7
 
-                    <Form className="col-3 mt-4 ml-4 p-3">
+                    <Form className="col-sm-3  mt-4 p-3">
                         <div className="form-group">
                             <label htmlFor="username">User Name:</label>
                             <Field type="text" className="form-control" id="username" name="username" placeholder="2-16 characters" aria-describedby="UserNameHelp"/>
@@ -52,13 +52,13 @@ function Register(props) {
                                 {errors.agreeToTerms && touched.agreeToTerms && <small className="text-danger">{errors.agreeToTerms}</small>}
                             </div>
                         </div>
-                        <button type="submit" className="btn btn-outline-dark animated-button victoria-two w-100">Submit</button>
+                        <button type="submit" className="btn btn-secondary animated-button victoria-two w-100">Submit</button>
                     </Form>
 
                 )}
                 
             </Formik>
-            <div className="instagtam-def col-3 ml-4 mt-4">
+            <div className="instagtam-def col-sm-3 my-4">
                 <p>
                     <strong>Instagram </strong>
                      is a free, online photo-sharing application and social network platform that was acquired by Facebook in 2012. Instagram allows users to edit and upload photos and short videos through a mobile app
