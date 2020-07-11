@@ -1,37 +1,71 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.scss';
-import Header from './Header/Header';
 import {
-  BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  useHistory
 } from "react-router-dom";
 import Register from './Register/Register';
-import LogIn from './logIn/logIn';
+import PostCreate from './PostCreate/PostCreate';
+import Login from './Login/Login';
+import Menu from './Menu/Menu';
+import { UserContext } from './user-context';
+import { UserService } from './services/user-service';
+import Feed from "./Feed/Feed";
+import Spinner from "./Spinner/Spinner";
 
 
 function App() {
 
+  const [isLoading, setLoading] = useState(true)
+  const [user, setUser] = useState(null);
+  const history = useHistory()
+
+  useEffect( ()=>{  //once the app is Up we want to check if we have cookie. if we do have insert user data into context
+    async function getUser() {
+        const user = await UserService.get()
+        setUser(user);
+        setLoading(false);
+        if (!user) {
+          history.push('/login')
+        }
+      }
+      getUser();
+  }, [])
+
+
   return (
-    <Router className="App">
-      <Header />
-        <div className="container-fluid px-0">
+    <UserContext.Provider value={{user,setUser}}>
+      {isLoading && <Spinner />}
+      {/* <Router className="App"> */}
+      {/*<div className="App__Loding spinner-border text-primary" role="status"><span className="sr-only">Loading...</span></div>*/}
+        <div className="d-flex flex-column flex-md-column-reverse">
+          {/* <div className="order-1 order-lg-0"> */}
 
-          <Switch>
-            
-            <Route path="/register">
-              <Register />
-            </Route>
-            <Route path="/login">
-              <LogIn />
-            </Route>
-            <Route path="/">
-              Home page
-            </Route>
+          {/* </div> */}
+          <div className="container mt-3 flex-grow-1 p-0 p-lg-3">
+            <Switch> 
+              
+              <Route path="/register">
+                <Register />
+              </Route>
+              <Route path="/login">
+                <Login />
+              </Route>
+              <Route path="/post/create">
+                <PostCreate />
+              </Route>
+              <Route path="/">
+                <Feed />
+              </Route>
 
-          </Switch>
+            </Switch>
+          </div>
+          {<Menu />}
+          {/*{user && <Menu />}     need to return the code to uset &&*/}
         </div>
-    </Router>
+      {/* </Router> */}
+    </UserContext.Provider>
   );
 }
 

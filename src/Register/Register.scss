@@ -1,15 +1,40 @@
 .Register{
-    position: relative; 
-    background-image: url('./register2.jpg');
-    background-size: 100%;
-    background-repeat: no-repeat;
+    position: relative;
+
+    // background-color: #fafafa;
+
+    .tempBorder{
+        border: 2px solid red;
+    }
+
 }
 
-form {
-    background-color: #849aae;
-    border: 2px solid #d5dae4;
+.Register .btn-primary {
+    background-color: #0095f6;
 }
 
-.instagtam-def p{
-    text-align: center;
+p {
+    color: #8e8e8e
+
 }
+
+.Register input {
+    background-color: #fafafa;
+}
+
+.form-container {
+    border: 1px solid #dbdbdb;
+    background-color: white;
+}
+
+.Register form, .form-group, .text-center, p, label{
+
+}
+
+
+#logo{
+    height: 50px;
+}
+
+
+
