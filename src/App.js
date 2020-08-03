@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import Register from './Register/Register';
 import PostCreate from './PostCreate/PostCreate';
-import Login from './Login/Login';
+import Login from './Login/Login'
 import Menu from './Menu/Menu';
 import { UserContext } from './user-context';
 import { UserService } from './services/user-service';
