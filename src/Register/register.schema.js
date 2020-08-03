@@ -1,8 +1,9 @@
 import * as Yup from 'yup';
+import config from "../config";
 
 async function validateUsername(value) {
         console.log(value);
-        const res = await fetch('http://localhost:4000/users/username-validation', {
+        const res = await fetch(config.apiUrl + '/users/username-validation', {
             method: 'POST',
             headers : {
                 'Content-Type': 'application/json'

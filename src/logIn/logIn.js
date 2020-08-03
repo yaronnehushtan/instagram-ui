@@ -9,6 +9,7 @@ import { useHistory, Link } from 'react-router-dom';
 import PhoneSlideShow from "../PhoneSlideShow/PhoneSlideShow";
 import { faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {config} from "@fortawesome/fontawesome-svg-core";
 
 
 //ndd to chang all logIn to login 
@@ -28,7 +29,7 @@ function Login(props) {
     const submit = async (values) => { 
     
     
-        const res = await fetch('http://localhost:4000/users/login', {
+        const res = await fetch(config.apiUrl + '/users/login', {
             method: 'POST',
             headers : {
                 'Content-Type': 'application/json'
