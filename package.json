@@ -12,8 +12,10 @@
     "bootstrap": "^4.5.0",
     "font-awesome-animation": "^0.2.1",
     "formik": "^2.1.4",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-image-crop": "^8.6.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "yup": "^0.29.1"

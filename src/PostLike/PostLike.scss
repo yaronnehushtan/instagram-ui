@@ -9,10 +9,48 @@
 }
 
 
-//
-//  .heart-container{
-//    //position: absolute;
-//  }
+  .heart-container{
+
+    [class="heart"] {
+      position: absolute;
+      left: -100vw;
+    }
+
+    [class="heart"] {
+      color: #aab8c2;
+      cursor: pointer;
+      font-size: 6em;
+      align-self: center;
+      transition: color 0.2s ease-in-out;
+    }
+
+    [class="heart"]:hover {
+      color: grey;
+    }
+
+    [class="heart"]::selection {
+      color: none;
+      background: transparent;
+    }
+
+    [class="heart"]::moz-selection {
+      color: none;
+      background: transparent;
+    }
+
+    [class="heart"]:checked + label {
+      color: #e2264d;
+      will-change: font-size;
+      animation: heart 1s cubic-bezier(.17, .89, .32, 1.49);
+    }
+
+
+
+    @keyframes heart {0%, 17.5% {font-size: 0;}}
+
+
+    //position: absolute;
+  }
 //
 //  .temp-border{
 //    border: 2px solid red;
@@ -295,18 +333,16 @@
 //    }
 //
 //
-//  }
-//
 //    @keyframes heart-grow {
 //      33% { transform: scale(0.8); fill: white; stroke: brown; }
 //      66% { transform: scale(1.2); }
 //      99%, 100% { transform: scale(1); fill: brown; stroke: brown;}
 //    }
-
-
-
-
-
+//
+//
+//
+//
+//
 
 
 

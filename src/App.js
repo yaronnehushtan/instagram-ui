@@ -12,13 +12,17 @@ import Menu from './Menu/Menu';
 import { UserContext } from './user-context';
 import { UserService } from './services/user-service';
 import Feed from "./Feed/Feed";
-import Spinner from "./Spinner/Spinner";
+import Spinner from "./common/Spinner/Spinner";
+import Profile from "./Profile/Profile";
+import EditProfile from "./EditProfile/EditProfile";
+import Search from "./Search/Search";
+import PostPage from "./PostPage/PostPage";
 
 
 function App() {
 
   const [isLoading, setLoading] = useState(true)
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
   const history = useHistory()
 
   useEffect( ()=>{  //once the app is Up we want to check if we have cookie. if we do have insert user data into context
@@ -52,17 +56,31 @@ function App() {
               <Route path="/login">
                 <Login />
               </Route>
+
               <Route path="/post/create">
                 <PostCreate />
               </Route>
+              <Route path="/post/:id">
+                <PostPage />
+              </Route>
+              <Route path="/profile/:id">
+                <Profile />
+              </Route>
+              <Route path="/edit-profile">
+                <EditProfile />
+              </Route>
+              <Route path="/search">
+                <Search />
+              </Route>
+
               <Route path="/">
                 <Feed />
               </Route>
 
+
             </Switch>
           </div>
-          {<Menu />}
-          {/*{user && <Menu />}     need to return the code to uset &&*/}
+          {user && <Menu />}
         </div>
       {/* </Router> */}
     </UserContext.Provider>

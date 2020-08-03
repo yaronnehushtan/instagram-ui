@@ -1,5 +1,7 @@
 .Spinner {
 
+
+
   .App__loading {
     position: absolute;
     top: 0;
@@ -18,7 +20,7 @@
   }
 
   .spinner-container {
-    margin: 50px auto 0;
+    margin: 40px auto 0;
     width: 150px;
     text-align: center;
 
@@ -27,7 +29,7 @@
   .spinner-container > div {
     width: 30px;
     height: 30px;
-    background-color: #0095f6;
+    background-color: #b02dc1;
     margin: 10px;
 
     border-radius: 100%;
@@ -39,11 +41,13 @@
   .spinner-container .bounce1 {
     -webkit-animation-delay: -0.32s;
     animation-delay: -0.32s;
+    background-color: #ffa049;
   }
 
   .spinner-container .bounce2 {
     -webkit-animation-delay: -0.16s;
     animation-delay: -0.16s;
+    background-color: #f14c5d;
   }
 
   @-webkit-keyframes sk-bouncedelay {

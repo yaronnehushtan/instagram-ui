@@ -18,7 +18,7 @@ function Login(props) {
 
     const {setUser} = useContext(UserContext)
 
-    const [signinSuccess,setsigninSuccess] = useState(false);
+    const [signinSuccess,setsigninSuccess] = useState(true);
     const [signinFailed,setsigninFailed] = useState(false);
     const [isPasswordShown,setIsPasswordShown] = useState(false);
 
@@ -39,7 +39,7 @@ function Login(props) {
     
         if (res.status === 200 ){
             console.log('Yes');
-            setsigninSuccess(true);
+            setsigninSuccess(false);
             setsigninFailed(false);
 
             const loggedUser = await res.json();
@@ -69,6 +69,9 @@ function Login(props) {
 
     return (
         <div className="Login">
+            { signinSuccess && <div class="alert alert-success " role="alert">
+                You signed in successfully!
+            </div>}
 
             <div class="row justify-content-center">
                 <div className="col-6 col-md-7 col-lg-6 d-none d-md-flex pl-0 pr-0">
@@ -133,9 +136,7 @@ function Login(props) {
                     <div class="p-2 form-container text-center mt-3">
                         <p class="m-2">Don't have an account? <Link to="/register">Sign Up</Link></p>
                     </div>
-                    { signinSuccess && <div class="alert alert-success" role="alert">
-                        You signed in successfuly
-                    </div>}
+
                     { signinFailed && <div class="alert alert-danger" role="alert">
                         Check username & Password and try again
                     </div>}
